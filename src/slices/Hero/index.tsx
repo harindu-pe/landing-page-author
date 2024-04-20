@@ -6,6 +6,7 @@ import { useRef } from "react";
 
 import gsap, { random } from "gsap"; // <-- import GSAP
 import { useGSAP } from "@gsap/react"; // <-- import the hook from our React package
+import Bounded from "@/components/Bounded";
 
 /**
  * Props for `Hero`.
@@ -71,7 +72,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
   };
 
   return (
-    <section
+    <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       ref={container}
@@ -79,7 +80,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       <div className="grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center">
         <div className="col-start-1 md:row-start-1 border">
           <h1
-            className="mb-8 text-[clamp(3rem,20vmin,20rem)] md:text-[9rem] lg:text-[clamp(3rem,20vmin,20rem)] font-extrabold leading-[1.05] tracking-tighter"
+            className="mb-8 text-[clamp(3rem,20vmin,20rem)] font-extrabold leading-[1.05] tracking-tighter"
             aria-label={`${slice.primary.first_name} ${slice.primary.last_name}`}
           >
             <span className="block text-slate-300">
@@ -94,7 +95,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           </span>
         </div>
       </div>
-    </section>
+    </Bounded>
   );
 };
 
